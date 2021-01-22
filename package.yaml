@@ -1,0 +1,56 @@
+name:                AutoCycles
+version:             0.1.0
+github:              "natpo/AutoCycles"
+license:             GPL-3
+author:              "Nat Po"
+maintainer:          "natpomusic@gmail.com"
+copyright:           "2020 Nat Po"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Automated composition in TidalCycles
+category:            Sound
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/natpo/AutoCycles#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers >= 0.6.2.1
+- data-default >= 0.7.1.1
+- gloss >= 1.13.2.1
+- gtk >= 0.15.5
+- hmidi >= 0.2.3.1
+- hosc >= 0.18.1
+- hsc3 >= 0.18
+- tidal >= 1.6.1
+
+library:
+  source-dirs: src
+
+executables:
+  AutoCycles-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -O3 -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - AutoCycles
+
+tests:
+  AutoCycles-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -O3 -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - AutoCycles
