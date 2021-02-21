@@ -5,10 +5,8 @@ packages:
   - .
 
 extra-deps:
-  - gloss-1.13.2.1
   - hmidi-0.2.3.1
   - hosc-0.18.1
-  - hsc3-0.18
   - tidal-1.6.1
 
   - cairo-0.13.8.1

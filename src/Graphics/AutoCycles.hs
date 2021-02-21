@@ -3,26 +3,23 @@ module Graphics.AutoCycles where
 import Graphics.UI.Gtk
 import Sound.AutoCycles.Variables
 
-hello :: (ButtonClass o) => o -> IO ()
-hello b = set b [buttonLabel := "Hello World"]
-
 openClient :: Variables -> IO ()
 openClient v = do
   initGUI
-  window <- windowNew
+  window  <- windowNew
   hbox    <- hBoxNew True 10
-  button1 <- buttonNewWithLabel "Button 1"
-  button2 <- buttonNewWithLabel "Button 2"
+  button1 <- buttonNewWithLabel "Fullscreen"
+  button2 <- buttonNewWithLabel "Windowed"
   set window [ windowTitle := "AutoCycles 0.1.0"
              , windowResizable := True
-             , windowDefaultWidth := 468
-             , windowDefaultHeight := 552
+             , windowDefaultWidth := 1920
+             , windowDefaultHeight := 1080
              , containerChild := hbox
              , containerBorderWidth := 8 ]
   boxPackStart hbox button1 PackGrow 0
   boxPackStart hbox button2 PackGrow 0
-  onClicked button1 (hello button1)
-  onClicked button2 (hello button2)
+  onClicked button1 (windowFullscreen window)
+  onClicked button2 (windowUnfullscreen window)
   onDestroy window mainQuit
   widgetShowAll window
   mainGUI

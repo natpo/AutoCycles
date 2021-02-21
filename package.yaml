@@ -23,11 +23,9 @@ dependencies:
 - base >= 4.7 && < 5
 - containers >= 0.6.2.1
 - data-default >= 0.7.1.1
-- gloss >= 1.13.2.1
 - gtk >= 0.15.5
 - hmidi >= 0.2.3.1
 - hosc >= 0.18.1
-- hsc3 >= 0.18
 - tidal >= 1.6.1
 
 library:
